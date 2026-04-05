@@ -27,8 +27,8 @@ export default function Navbar() {
     <div className="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 lg:px-8 pt-4">
       <nav className={cn(
         'mx-auto transition-all duration-300',
-        scrolled
-          ? 'max-w-5xl glass-panel px-5 py-3 bg-card/95'
+        (scrolled || mobileOpen)
+          ? 'max-w-5xl glass-panel px-5 py-3 bg-card/95 shadow-xl'
           : 'max-w-7xl'
       )}>
         <div className="flex items-center justify-between h-12">
