@@ -20,7 +20,7 @@ export function ExpenseProvider({ children }: { children: React.ReactNode }) {
 
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     const saved = localStorage.getItem('tracker_theme');
-    return (saved as 'light' | 'dark') || 'dark';
+    return (saved as 'light' | 'dark') || 'light';
   });
 
   useEffect(() => {
