@@ -1,0 +1,42 @@
+﻿
+C:\Users\recha\my-money-manager\src\components\transactions\TransactionForm.tsx
+  24:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\recha\my-money-manager\src\components\transactions\TransactionForm.tsx:24:7
+  22 |   useEffect(() => {
+  23 |     if (!initialData) {
+> 24 |       setCategory(type === 'INCOME' ? INCOME_CATEGORIES[0] : EXPENSE_CATEGORIES[0]);
+     |       ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  25 |     }
+  26 |   }, [type, initialData]);
+  27 |  react-hooks/set-state-in-effect
+
+C:\Users\recha\my-money-manager\src\context\ExpenseContext.tsx
+  119:17  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\recha\my-money-manager\src\pages\Dashboard.tsx
+   54:9   error  Error: Cannot reassign variable after render completes
+
+Reassigning `runningBalance` after render has completed can cause inconsistent behavior on subsequent renders. Consider using state instead.
+
+C:\Users\recha\my-money-manager\src\pages\Dashboard.tsx:54:9
+  52 |       .sort((a, b) => new Date(`${a[0]} ${new Date().getFullYear()}`).getTime() - new Date(`${b[0]} ${new Date().getFullYear()}`).getTime())
+  53 |       .map(([date, data]) => {
+> 54 |         runningBalance += (data.income - data.expense);
+     |         ^^^^^^^^^^^^^^ Cannot reassign `runningBalance` after render completes
+  55 |         return {
+  56 |           date,
+  57 |           income: data.income,  react-hooks/immutability
+  185:40  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+
+C:\Users\recha\my-money-manager\src\pages\TransactionsPage.tsx
+  129:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Γ£û 5 problems (5 errors, 0 warnings)
+

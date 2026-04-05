@@ -1,0 +1,2 @@
+﻿src/components/layout/Footer.tsx(2,10): error TS2305: Module '"lucide-react"' has no exported member 'Github'.
+src/components/layout/Footer.tsx(2,18): error TS2305: Module '"lucide-react"' has no exported member 'Linkedin'.
